@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}      % Page framework
+\geometry{a4paper,  total={210mm,297mm}, left=30mm,  right=20mm,  top=25mm,  bottom=25mm}   
+\renewcommand{\baselinestretch}{1.5}   % Line spacing
+\usepackage{times}            % Use font Times-Roman
+\usepackage[T1]{fontenc}      % Codification T1 (copy with accents) 
+\usepackage[utf8]{inputenc} % Accentuate words and use ñ
+\usepackage[spanish]{babel}   % Put labels in spanish
+\usepackage{latexsym,amsmath,amssymb,amsfonts}   % Numeric formulas
+\usepackage{graphicx}      % Insert graphics
+\usepackage{float}         % Insert graph when you want "[H]"
+\usepackage[round]{natbib} % Bibliography references
+\usepackage{hyperref}      % Insert web links and references
+\usepackage{enumerate}     % Insert bar list
+\usepackage{lscape}        % Put Page horizontal way
+\usepackage{verbatim}      % Multiline coments
+\usepackage[titletoc,toc,title]{appendix}
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+<<preambule,echo=FALSE,message=FALSE>>=
+
+library(agricolae)
+library(ggplot2)
+library(FactoMineR)
+library(car)
+library(doBy)
+library(plyr)
+
+url <- "link"
+dta <-  gsheet2tbl(url) #Data File
+
+opts_chunk$set(comment=NA,background='#FFFFFF',fig.height=5,fig.width=10)
+@
+
+\Sexpr{ID.value} % Cite R script info
+
+\begin{figure/table}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{} % File directory
+\caption{} % Title figure/table (above/below)
+\label{}   % Reference figure/table (\ref{})
+\end{figure/table}
+
+%%%%%%%%%%%%%%%%%
+ \tableofcontents
+ \listoffigures
+ \listoftables
+%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\addcontentsline{toc}{section}{Bibliografía}
+\bibliographystyle{newapa}
+\bibliography{library}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
+\renewcommand{\appendixname}{Anexo}
+
+\begin{appendices}
+\end{appendices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
